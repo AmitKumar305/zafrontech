@@ -14,7 +14,7 @@ const applyForJob = async (req, res) => {
         });
     }
 
-    sendEmail(fullName, email, phoneNumber, req.files.resume.data, req.files.resume.name);
+    sendEmail(job.title, fullName, email, phoneNumber, req.files.resume.data, req.files.resume.name);
 
     return res
         .status(200)
