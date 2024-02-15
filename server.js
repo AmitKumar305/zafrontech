@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const busboyBodyParser = require('busboy-body-parser');
 const connectDB = require('./db/index');
 const app = express();
 app.use(cors({
@@ -14,7 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(busboyBodyParser());
 
 connectDB();
-const busboyBodyParser = require('busboy-body-parser');
 const AuthenticateAdmin = require('./middleware/authenticateAdmin');
 
 const adminLogin = require('./controller/adminLogin');
