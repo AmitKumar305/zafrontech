@@ -2,7 +2,7 @@ const JobModel = require('../models/job.models.js');
 const sendEmail = require('../services/sendEmail.js');
 
 const applyForJob = async (req, res) => {
-    const { jobId, fullName, email, phoneNumber } = JSON.parse(req.body.data);
+    const { jobId, fullName, email, phoneNumber, experience } = JSON.parse(req.body.data);
 
     const job = await JobModel.findOne({
         _id: jobId,
@@ -14,7 +14,7 @@ const applyForJob = async (req, res) => {
         });
     }
 
-    sendEmail(job.title, fullName, email, phoneNumber, req.files.resume.data, req.files.resume.name);
+    sendEmail(job.title, fullName, email, phoneNumber, experience, req.files.resume.data, req.files.resume.name);
 
     return res
         .status(200)
