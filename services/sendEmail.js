@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = async (jobTitle, fullName, userEmail, phoneNumber, experience, resume, fileName) => {
+const sendEmail = async (jobTitle, fullName, userEmail, phoneNumber, experience, releventExperience, resume, fileName) => {
     const transpoter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -23,6 +23,7 @@ const sendEmail = async (jobTitle, fullName, userEmail, phoneNumber, experience,
             Email: ${userEmail}
             Phone Number: ${phoneNumber}
             Experience: ${experience}
+            Relevent Experience: ${releventExperience}
             Job Title: ${jobTitle}
         `,
         attachments: [

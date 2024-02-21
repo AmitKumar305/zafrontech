@@ -1,7 +1,7 @@
 const JobModel = require('../models/job.models.js');
 
 const addJob = async (req, res) => {
-    const { title, experience, location, jobDescription } = req.body;
+    const { title, experience, openings, location, jobDescription } = req.body;
 
     if (!title) {
         return res.status(400).json({
@@ -12,6 +12,7 @@ const addJob = async (req, res) => {
     const job = new JobModel({
         title,
         experience,
+        openings,
         location,
         jobDescription,
     });

@@ -16,16 +16,19 @@ app.use(busboyBodyParser());
 
 connectDB();
 const AuthenticateAdmin = require('./middleware/authenticateAdmin');
-
 const adminLogin = require('./controller/adminLogin');
 const addJob = require('./controller/addJob');
+const editJob = require('./controller/editJob');
 const listJobs = require('./controller/listJobs');
+const deleteJob = require('./controller/deleteJob');
 const applyForJob = require('./controller/applyForJob');
 
 const port = process.env.PORT || 3000;
 
 app.post('/api/adminLogin', adminLogin);
 app.post('/api/addJob', AuthenticateAdmin, addJob);
+app.post('/api/editJob', AuthenticateAdmin, editJob);
+app.post('/api/deleteJob', AuthenticateAdmin, deleteJob);
 app.get('/api/listJobs', listJobs);
 app.post('/api/apply', applyForJob);
 
