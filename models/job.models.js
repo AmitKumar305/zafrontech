@@ -17,6 +17,14 @@ const jobSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    workMode: {
+        type: String,
+        required: true,
+    },
+    package: {
+        type: String,
+        required: true,
+    },
     jobDescription: [String],
 }, {
     timestamps: true,

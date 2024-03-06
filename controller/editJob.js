@@ -1,7 +1,7 @@
 const JobModel = require('../models/job.models.js');
 
 const editJob = async (req, res) => {
-    const { jobId, title, experience, openings, location, jobDescription } = req.body;
+    const { jobId, title, experience, openings, location, workMode, package, jobDescription } = req.body;
 
     const job = await JobModel.findOne({
         _id: jobId,
@@ -20,6 +20,8 @@ const editJob = async (req, res) => {
         experience,
         openings,
         location,
+        workMode,
+        package,
         jobDescription,
     }, {
         new: true,
