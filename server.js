@@ -22,6 +22,7 @@ const editJob = require('./controller/editJob');
 const listJobs = require('./controller/listJobs');
 const deleteJob = require('./controller/deleteJob');
 const applyForJob = require('./controller/applyForJob');
+const contactUs = require('./controller/contactUs');
 
 const port = process.env.PORT || 3000;
 
@@ -31,6 +32,7 @@ app.post('/api/editJob', AuthenticateAdmin, editJob);
 app.post('/api/deleteJob', AuthenticateAdmin, deleteJob);
 app.get('/api/listJobs', listJobs);
 app.post('/api/apply', applyForJob);
+app.post('/api/contactUs', contactUs);
 
 
 app.listen(port, () => {
